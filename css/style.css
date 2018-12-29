@@ -1,0 +1,184 @@
+/*
+COLORS:
+
+Light green: #7ed56f | rgb(126, 253, 111)
+Medium green: #55c57a
+Dark green: #28b485 | rgb(148, 100, 131)
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* padding and border are included in the element's width and height*/
+}
+
+body {
+	font-family: "Lato",  sans-serif;
+	font-weight: 400;
+	line-height: 1.7; /* Means 1.7 times bigger then predefined line heigt  */
+	color: #777;
+	padding: 30px; /* padding is not inherited */
+}
+
+.header {
+	height: 95vh; /* 95% percent of viewport height*/
+	background-image: linear-gradient(
+		to right bottom, 
+		rgba(126, 253, 111, .8), 
+		rgba(148, 100, 131, .8)), 
+	url('../img/hero.jpg'); /* seting a gradiant and an image as background image, means that you can set more than one background image to an element using commas, but the first bacground that you set will be on the top of the stack */
+	background-size: cover; /* allways try to fit to the with of the viewport */
+	background-position: top; /* ensure  that whatever the viewport size, the top of the image allways stay on the top of the container */
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*clip out parts of an element css3, specifiying a polygon in witch  the element will still visivle, define the X and Y of all points of the element, considerign  the fact that the unit start increasing from left to right for X and from top to bottom for the Ys */
+	position: relative;
+}
+
+.logo-box {
+	position: absolute; /* his parent need to hava a relative position */
+	top: 40px;
+	left: 40px;
+}
+
+.logo {
+	height: 35px;
+	width: auto;
+}
+
+.text-box { /* centering the text element*/
+	position: absolute;
+	top: 40%; /* moving the box 50% from the top of the parent */
+	left: 50%; /* moving the box 50% from the left of the parent */
+	transform: translate(-50%, -50%); /* transforming the box so the position will be minus 50% of its actual posiotion. cool */
+	text-align: center;
+}
+
+.heading-primary {
+	color: #fff;
+	text-transform: uppercase; /* set text to uppercase */
+
+	backface-visibility: hidden;
+	margin-bottom: 60px;
+}
+
+.heading-primary-main {
+	display: block;
+	font-size: 60px;
+	font-weight: 400;
+	letter-spacing: 30px;
+
+	animation-name: moveInLeft; /* referencing the defined keyframe for this element's animation */
+	animation-duration: 1s; /* duration for the animation */
+	animation-timing-function: ease-out; /* how the element's animation will behave in the begining, during and in the end of animation */
+
+/*	
+	animation-delay: 3s; | the time it will take before the animation starts
+	animation-iteration-count: 3; | the times the animation will play
+*/
+}
+
+.heading-primary-sub {
+	display: block;
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 16px;
+
+	animation: moveInRight 1s ease-out; /*short for animations proprierties { animation: name duration timing-function delay iteration-count direction fill-mode; } */
+}
+
+@keyframes moveInLeft { /* we can uuse @keyframes to create animations, becouse it defines the status (or proprierties) on an element on a certain point of the time in an animation */
+	0% { /* at 0% of the animation time (when it begins) */
+		opacity: 0;
+		transform: translateX(-100px);  /* moving the element position in a X direction */
+	}
+
+	80% {
+		transform: translateX(10px);	
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+
+	80% {
+		transform: translateX(-10px);	
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+.btn:link, /* using pseudo for referencing a link */
+.btn:visited { /* when the link is visited */
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 15px 40px;
+	display: inline-block;
+	border-radius: 100px;
+	transition: all .2s;
+	position: relative; 
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .2); /*box-shador: [offsetX] [offsetY] [blur] [color] */
+}
+
+.btn:active { /* when the link is being cliked */
+	transform: translate(-1px);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+	background-color: #fff;
+	color: #777;
+}
+
+.btn::after {
+	content: ""; /* allways required*/
+	display: inline-block; /* allways required */
+	height: 100%; /* 100% height from the btn element*/
+	width: 100%; /* 100% widht from the btn element*/
+	border-radius: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all .4s;
+}
+
+.btn-white::after {
+	background-color: #fff;
+}
+
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
+}
+
+.btn-animated {
+	animation: moveInBottom .5s ease-out .75s;
+	animation-fill-mode: backwards;
+}
