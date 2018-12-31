@@ -3,7 +3,7 @@ COLORS:
 
 Light green: #7ed56f | rgb(126, 253, 111)
 Medium green: #55c57a
-Dark green: #28b485 | rgb(148, 100, 131)
+Dark green: #28b485 | rgb(40, 180, 133)
 
 */
 
@@ -22,11 +22,12 @@ body {
 }
 
 .header {
+	color: rgb(40, 180, 133);
 	height: 95vh; /* 95% percent of viewport height*/
 	background-image: linear-gradient(
 		to right bottom, 
 		rgba(126, 253, 111, .8), 
-		rgba(148, 100, 131, .8)), 
+		rgba(40, 180, 133, .8)), 
 	url('../img/hero.jpg'); /* seting a gradiant and an image as background image, means that you can set more than one background image to an element using commas, but the first bacground that you set will be on the top of the stack */
 	background-size: cover; /* allways try to fit to the with of the viewport */
 	background-position: top; /* ensure  that whatever the viewport size, the top of the image allways stay on the top of the container */
