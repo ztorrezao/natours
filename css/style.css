@@ -7,22 +7,29 @@ Dark green: #28b485 | rgb(40, 180, 133)
 
 */
 
-* {
+*,
+*::before,
+*::after {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box; /* padding and border are included in the element's width and height*/
+	box-sizing: inherit; /* padding and border are included in the element's width and height*/
 }
+
+html {
+	font-size: 62.5%; /* equivalent to 10px if the browser font size is 16px */
+}
+
 
 body {
 	font-family: "Lato",  sans-serif;
 	font-weight: 400;
 	line-height: 1.7; /* Means 1.7 times bigger then predefined line heigt  */
 	color: #777;
-	padding: 30px; /* padding is not inherited */
+	padding: 3rem; /* padding is not inherited */
+	box-sizing: border-box; /* body box-sizing to be inherited manualy by * selector */
 }
 
 .header {
-	color: rgb(40, 180, 133);
 	height: 95vh; /* 95% percent of viewport height*/
 	background-image: linear-gradient(
 		to right bottom, 
@@ -37,12 +44,12 @@ body {
 
 .logo-box {
 	position: absolute; /* his parent need to hava a relative position */
-	top: 40px;
-	left: 40px;
+	top: 4rem;
+	left: 4rem;
 }
 
 .logo {
-	height: 35px;
+	height: 3.5rem;
 	width: auto;
 }
 
@@ -59,14 +66,14 @@ body {
 	text-transform: uppercase; /* set text to uppercase */
 
 	backface-visibility: hidden;
-	margin-bottom: 60px;
+	margin-bottom: 6rem;
 }
 
 .heading-primary-main {
 	display: block;
-	font-size: 60px;
+	font-size: 6rem;
 	font-weight: 400;
-	letter-spacing: 30px;
+	letter-spacing: 3rem;
 
 	animation-name: moveInLeft; /* referencing the defined keyframe for this element's animation */
 	animation-duration: 1s; /* duration for the animation */
@@ -80,9 +87,9 @@ body {
 
 .heading-primary-sub {
 	display: block;
-	font-size: 20px;
+	font-size: 2rem;
 	font-weight: 400;
-	letter-spacing: 16px;
+	letter-spacing: 1.6rem;
 
 	animation: moveInRight 1s ease-out; /*short for animations proprierties { animation: name duration timing-function delay iteration-count direction fill-mode; } */
 }
@@ -90,11 +97,11 @@ body {
 @keyframes moveInLeft { /* we can uuse @keyframes to create animations, becouse it defines the status (or proprierties) on an element on a certain point of the time in an animation */
 	0% { /* at 0% of the animation time (when it begins) */
 		opacity: 0;
-		transform: translateX(-100px);  /* moving the element position in a X direction */
+		transform: translateX(-10rem);  /* moving the element position in a X direction */
 	}
 
 	80% {
-		transform: translateX(10px);	
+		transform: translateX(1rem);	
 	}
 
 	100% {
@@ -106,11 +113,11 @@ body {
 @keyframes moveInRight {
 	0% {
 		opacity: 0;
-		transform: translateX(100px);
+		transform: translateX(10rem);
 	}
 
 	80% {
-		transform: translateX(-10px);	
+		transform: translateX(-1rem);	
 	}
 
 	100% {
@@ -122,7 +129,7 @@ body {
 @keyframes moveInBottom {
 	0% {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateY(3rem);
 	}
 
 	100% {
@@ -135,21 +142,22 @@ body {
 .btn:visited { /* when the link is visited */
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 15px 40px;
+	padding: 1.5rem 4rem;
 	display: inline-block;
-	border-radius: 100px;
+	border-radius: 10rem;
 	transition: all .2s;
 	position: relative; 
+	font-size: 1.6rem;
 }
 
 .btn:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, .2); /*box-shador: [offsetX] [offsetY] [blur] [color] */
+	transform: translateY(-.3rem);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); /*box-shador: [offsetX] [offsetY] [blur] [color] */
 }
 
 .btn:active { /* when the link is being cliked */
-	transform: translate(-1px);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	transform: translate(-.1rem);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-white {
@@ -162,7 +170,7 @@ body {
 	display: inline-block; /* allways required */
 	height: 100%; /* 100% height from the btn element*/
 	width: 100%; /* 100% widht from the btn element*/
-	border-radius: 100px;
+	border-radius: 10rem;
 	position: absolute;
 	top: 0;
 	left: 0;
