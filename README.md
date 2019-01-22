@@ -1,2 +1,2 @@
 # natours
-A HTML and CSS project created in order to practice and follow along with the lessons from the Advanced CSS and SASS course created by @jonasschmedtman
+This website was built by *Zacarias Jorge Torrezão* for the online course *Advanced CSS and SASS* *Copyright © by Jonas Schmedtmann*. You are 100% allowed to use this page for both personal and commercial use, but not to claim it as your own design. A credit to the original author, *Jonas Schmedtmann*, is of course highly appreciated!
