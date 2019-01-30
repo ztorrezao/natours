@@ -1,0 +1,51 @@
+.popup {
+
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba($color-black, .80);
+	z-index: 9999;
+
+	&__content {
+		@include absCenter;
+		width: 75%;
+		background-color: $color-white;
+		box-shadow: 0 2rem 4rem rgba($color-black, .2);
+		border-radius: .3rem;
+		display: table;
+		overflow: hidden;
+	}
+
+	&__left {
+		width: 33.33333%;
+		display: table-cell;
+	}
+
+	&__right {
+		width: 66.33333%;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 3rem 5rem;
+	}
+
+	&__img {
+		width: 100%;
+		display: block;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		margin-bottom: 4rem;
+
+		column-count: 2;
+		column-gap: 4rem; //default column-gap is 1em = 14px in this case
+		column-rule: .1rem solid $color-gray-light-2;
+
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+	}
+}
